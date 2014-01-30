@@ -6,7 +6,7 @@ import com.ning.http.client.Response
 import model.ContentApiParser
 
 
-trait ContentApiClientDispatch {
+trait ContentApiClient {
 
   import ExecutionContext.Implicits.global
 
@@ -24,4 +24,4 @@ trait ContentApiClientDispatch {
 
 }
 
-object ContentApiClientDispatch extends ContentApiClientDispatch
+object ContentApiClient extends ContentApiClient
