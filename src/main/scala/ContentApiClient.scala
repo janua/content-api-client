@@ -17,10 +17,13 @@ trait ContentApiClient {
   def get(id: String) = Http(url(getUrl(id)))
 
   def get(query: ContentApiQuery): Future[Response] =
-    Http(query.params.foldLeft(url(getUrl(query.id))){case (req, (k, v)) => req.addHeader(k, v)})
+    Http(query.params.foldLeft(url(getUrl(query.id))){case (req, (k, v)) => req.addQueryParameter(k, v)})
 
   def getContent(id: String) =
     get(id).map(response => ContentApiParser.parseResponse(response.getResponseBody))
+
+  def getContent(query: ContentApiQuery) =
+    get(query).map(response => ContentApiParser.parseResponse(response.getResponseBody))
 
 }
 
