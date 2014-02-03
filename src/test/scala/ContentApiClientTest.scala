@@ -26,7 +26,7 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     }
   }
 
-  it should "get Results" in {
+  it should "get editorsPicks" in {
     val queryParams = ContentApiQuery("uk")
       .withEdition("uk")
       .withShowEditorsPicks(true)
