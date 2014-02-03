@@ -14,7 +14,7 @@ trait ContentApiClient {
 
   private def getUrl(id: String): String = s"$apiUrl/$id"
 
-  def get(id: String) = Http(url(getUrl(id)))
+  def get(id: String): Future[Response] = Http(url(getUrl(id)))
 
   def get(query: ContentApiQuery): Future[Response] =
     Http(query.params.foldLeft(url(getUrl(query.id))){case (req, (k, v)) => req.addQueryParameter(k, v)})
