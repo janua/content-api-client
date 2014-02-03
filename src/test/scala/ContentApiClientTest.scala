@@ -38,4 +38,27 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     }
   }
 
+  it should "get results" in {
+    val queryParams = ContentApiQuery("politics")
+      .withEdition("uk")
+    val contentResult = ContentApiClient.getContent(queryParams)
+    whenReady(contentResult) { response =>
+      response.isDefined should be (true)
+      response.get.status should be ("ok")
+      response.get.results.get.length should be (10)
+    }
+  }
+
+  it should "get the correct page size" in {
+    val queryParams = ContentApiQuery("politics")
+      .withEdition("uk")
+      .withPageSize("4")
+    val contentResult = ContentApiClient.getContent(queryParams)
+    whenReady(contentResult) { response =>
+      response.isDefined should be (true)
+      response.get.status should be ("ok")
+      response.get.results.get.length should be (4)
+    }
+  }
+
 }
