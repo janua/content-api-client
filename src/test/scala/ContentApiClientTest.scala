@@ -21,7 +21,8 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     val contentResult = ContentApiClient.getContent("artanddesign/2013/nov/28/janet-delaney-best-photograph")
     whenReady(contentResult) { content =>
       content.isDefined should be (true)
-      content.get.id should be ("artanddesign/2013/nov/28/janet-delaney-best-photograph")
+      content.get.status should be ("ok")
+      content.get.content.get.id should be ("artanddesign/2013/nov/28/janet-delaney-best-photograph")
     }
   }
 

@@ -1,5 +1,26 @@
 package model
 
+case class ContentApiResponse(
+                               status: String,
+                               userTier: String,
+                               total: Option[Int],
+                               startIndex: Option[Int],
+                               pageSize: Option[Int],
+                               currentPage: Option[Int],
+                               pages: Option[Int],
+                               orderBy: Option[String],
+                               tag: Option[Tag],
+                               edition: Option[Edition],
+                               section: Option[Section],
+                               content: Option[Content],
+                               results: Option[List[Content]],
+                               relatedContent: Option[List[Content]],
+                               editorsPicks: Option[List[Content]],
+                               mostViewed: Option[List[Content]],
+                               storyPackage: Option[List[Content]],
+                               leadContent: Option[List[Content]]
+                               )
+
 case class Content(
                     id: String,
                     sectionId: Option[String],

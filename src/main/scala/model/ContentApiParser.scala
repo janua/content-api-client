@@ -18,9 +18,10 @@ trait ContentApiParser {
   implicit val tagRead = Json.reads[Tag]
   implicit val factBoxRead = Json.reads[Factbox]
   implicit val contentRead = Json.reads[Content]
+  implicit val contentApiResponseRead = Json.reads[ContentApiResponse]
 
-  def parseResponse(r: String) =
-    (Json.parse(r) \ "response" \ "content").asOpt[Content]
+  def parseResponse(r: String): Option[ContentApiResponse] =
+    (Json.parse(r) \ "response").asOpt[ContentApiResponse]
 }
 
 object ContentApiParser extends ContentApiParser
