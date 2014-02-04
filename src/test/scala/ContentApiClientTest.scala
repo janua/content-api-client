@@ -73,4 +73,28 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     }
   }
 
+  it should "get section" in {
+    val queryParams = ContentApiQuery("uk-news")
+      .withEdition("uk")
+    val contentResult = ContentApiClient.getContent(queryParams)
+    whenReady(contentResult) { response =>
+      response.isDefined should be (true)
+      response.get.status should be ("ok")
+      response.get.section.get.id should be ("uk-news")
+      response.get.section.get.editions.length should be > 0
+    }
+  }
+
+  it should "get an error response" in {
+    val queryParams = ContentApiQuery("non-existant-id")
+      .withEdition("uk")
+    val contentResult = ContentApiClient.getContent(queryParams)
+    whenReady(contentResult) { response =>
+      response.isDefined should be (true)
+      response.get.status should be ("error")
+      response.get.section.isDefined should be (false)
+      response.get.results.isDefined should be (false)
+    }
+  }
+
 }
