@@ -61,4 +61,16 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     }
   }
 
+  it should "get the correct tags" in {
+    val queryParams = ContentApiQuery("politics")
+      .withEdition("uk")
+      .withShowTags("all")
+    val contentResult = ContentApiClient.getContent(queryParams)
+    whenReady(contentResult) { response =>
+      response.isDefined should be (true)
+      response.get.status should be ("ok")
+      response.get.results.get(1).tags.get.length should be > 1
+    }
+  }
+
 }
