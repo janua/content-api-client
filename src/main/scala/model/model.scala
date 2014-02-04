@@ -48,7 +48,7 @@ case class Tag(
                 webTitle: String,
                 webUrl: String,
                 apiUrl: String,
-                references: List[Reference] = Nil,
+                references: Option[List[Reference]] = None,
                 bio: Option[String] = None,
                 bylineImageUrl: Option[String] = None,
                 bylineLargeImageUrl: Option[String] = None
