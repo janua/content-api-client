@@ -2,7 +2,8 @@ package model
 
 case class ContentApiResponse(
                                status: String,
-                               userTier: String,
+                               message: Option[String],
+                               userTier: Option[String],
                                total: Option[Int],
                                startIndex: Option[Int],
                                pageSize: Option[Int],
