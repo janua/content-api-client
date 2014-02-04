@@ -11,7 +11,7 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     PatienceConfig(timeout = Span(2, Seconds), interval = Span(5, Millis))
 
   "ContentApiClient" should "return a 200" in {
-    val contentResult = ContentApiClient.get("artanddesign/2013/nov/28/janet-delaney-best-photograph")
+    val contentResult = ContentApiClient.getResponse("artanddesign/2013/nov/28/janet-delaney-best-photograph")
     whenReady(contentResult) { response =>
       response.getStatusCode should be (200)
     }
