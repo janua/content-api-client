@@ -22,7 +22,7 @@ trait ContentApiParser {
   implicit val contentApiResponseRead = Json.reads[ContentApiResponse]
 
   def parseResponse(r: String): Option[ContentApiResponse] =
-    (Json.parse(r) \ "response").asOpt[ContentApiResponse]
+    Json.parse(r).asOpt[ContentApiResponse]
 
   def parseResponse(r: Response): Option[ContentApiResponse] =
     parseResponse(r.getResponseBody)
