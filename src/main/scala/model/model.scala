@@ -1,26 +1,46 @@
 package model
 
-case class ContentApiResponse(
-                               status: String,
-                               message: Option[String],
-                               userTier: Option[String],
-                               total: Option[Int],
-                               startIndex: Option[Int],
-                               pageSize: Option[Int],
-                               currentPage: Option[Int],
-                               pages: Option[Int],
-                               orderBy: Option[String],
-                               tag: Option[Tag],
-                               edition: Option[Edition],
-                               section: Option[Section],
-                               content: Option[Content],
-                               results: Option[List[Content]],
-                               relatedContent: Option[List[Content]],
-                               editorsPicks: Option[List[Content]],
-                               mostViewed: Option[List[Content]],
-                               storyPackage: Option[List[Content]],
-                               leadContent: Option[List[Content]]
-                               )
+import play.api.libs.json.{Json, JsValue}
+
+trait ContentImplicitReads {
+  implicit val assetRead = Json.reads[Asset]
+  implicit val elementRead = Json.reads[Element]
+  implicit val referenceRead = Json.reads[Reference]
+  implicit val folderRead = Json.reads[Folder]
+  implicit val bestBetRead = Json.reads[BestBet]
+  implicit val refinementRead = Json.reads[Refinement]
+  implicit val refinementGroupRead = Json.reads[RefinementGroup]
+  implicit val mediaEncodingRead = Json.reads[MediaEncoding]
+  implicit val mediaAssetRead = Json.reads[MediaAsset]
+  implicit val editionRead = Json.reads[Edition]
+  implicit val sectionRead = Json.reads[Section]
+  implicit val tagRead = Json.reads[Tag]
+  implicit val factBoxRead = Json.reads[Factbox]
+  implicit val contentRead = Json.reads[Content]
+  implicit val contentApiResponseRead = Json.reads[ContentApiResponse]
+}
+
+case class ContentApiResponse(response: Map[String, JsValue]) extends ContentImplicitReads {
+  lazy val status: String = response.apply("status").as[String]
+  lazy val message: Option[String] = response.get("message").flatMap(_.asOpt[String])
+  lazy val userTier: Option[String] = response.get("userTier").flatMap(_.asOpt[String])
+  lazy val total: Option[Int] = response.get("total").flatMap(_.asOpt[Int])
+  lazy val startIndex: Option[Int] = response.get("startIndex").flatMap(_.asOpt[Int])
+  lazy val pageSize: Option[Int] = response.get("pageSize").flatMap(_.asOpt[Int])
+  lazy val currentPage: Option[Int] = response.get("currentPage").flatMap(_.asOpt[Int])
+  lazy val pages: Option[Int] = response.get("pages").flatMap(_.asOpt[Int])
+  lazy val orderBy: Option[String] = response.get("orderBy").flatMap(_.asOpt[String])
+  lazy val tag: Option[Tag] = response.get("tag").flatMap(_.asOpt[Tag])
+  lazy val edition: Option[Edition] = response.get("edition").flatMap(_.asOpt[Edition])
+  lazy val section: Option[Section] = response.get("section").flatMap(_.asOpt[Section])
+  lazy val content: Option[Content] = response.get("content").flatMap(_.asOpt[Content])
+  lazy val results: Option[List[Content]] = response.get("results").flatMap(_.asOpt[List[Content]])
+  lazy val relatedContent: Option[List[Content]] = response.get("relatedContent").flatMap(_.asOpt[List[Content]])
+  lazy val editorsPicks: Option[List[Content]] = response.get("editorsPicks").flatMap(_.asOpt[List[Content]])
+  lazy val mostViewed: Option[List[Content]] = response.get("mostViewed").flatMap(_.asOpt[List[Content]])
+  lazy val storyPackage: Option[List[Content]] = response.get("storyPackage").flatMap(_.asOpt[List[Content]])
+  lazy val leadContent: Option[List[Content]] = response.get("leadContent").flatMap(_.asOpt[List[Content]])
+}
 
 case class Content(
                     id: String,
