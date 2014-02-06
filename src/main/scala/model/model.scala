@@ -42,23 +42,22 @@ case class ContentApiResponse(response: Map[String, JsValue]) extends ContentImp
   lazy val leadContent: Option[List[Content]] = response.get("leadContent").flatMap(_.asOpt[List[Content]])
 }
 
-case class Content(
-                    id: String,
-                    sectionId: Option[String],
-                    sectionName: Option[String],
-                    webPublicationDate: String,
-                    webTitle: String,
-                    webUrl: String,
-                    apiUrl: String,
-                    fields: Option[Map[String, String]],
-                    tags: Option[List[Tag]],
-                    factboxes: Option[List[Factbox]],
-                    mediaAssets: Option[List[MediaAsset]],
-                    elements: Option[List[Element]],
-                    snippets: Option[Map[String, String]],
-                    references: Option[List[Reference]],
-                    isExpired: Option[Boolean]
-                    )
+case class Content(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
+                    lazy val id: String = jsonFields.apply("id").as[String]
+                    lazy val sectionId: Option[String] = jsonFields.get("sectionId").flatMap(_.asOpt[String])
+                    lazy val sectionName: Option[String] = jsonFields.get("sectionName").flatMap(_.asOpt[String])
+                    lazy val webPublicationDate: String = jsonFields.apply("webPublicationDate").as[String]
+                    lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
+                    lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
+                    lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
+                    lazy val fields: Option[Map[String, String]] = jsonFields.get("fields").flatMap(_.asOpt[Map[String, String]])
+                    lazy val tags: Option[List[Tag]] = jsonFields.get("tags").flatMap(_.asOpt[List[Tag]])
+                    lazy val factboxes: Option[List[Factbox]] = jsonFields.get("factboxes").flatMap(_.asOpt[List[Factbox]])
+                    lazy val mediaAssets: Option[List[MediaAsset]] = jsonFields.get("mediaAssets").flatMap(_.asOpt[List[MediaAsset]])
+                    lazy val elements: Option[List[Element]] = jsonFields.get("elements").flatMap(_.asOpt[List[Element]])
+                    lazy val snippets: Option[Map[String, String]] = jsonFields.get("snippets").flatMap(_.asOpt[Map[String, String]])
+                    lazy val references: Option[List[Reference]] = jsonFields.get("references").flatMap(_.asOpt[List[Reference]])
+}
 
 
 case class Tag(
