@@ -33,13 +33,13 @@ case class ContentApiResponse(response: Map[String, JsValue]) extends ContentImp
   lazy val tag: Option[Tag] = response.get("tag").flatMap(_.asOpt[Tag])
   lazy val edition: Option[Edition] = response.get("edition").flatMap(_.asOpt[Edition])
   lazy val section: Option[Section] = response.get("section").flatMap(_.asOpt[Section])
-  lazy val content: Option[Content] = response.get("content").flatMap(_.asOpt[Content])
-  lazy val results: Option[List[Content]] = response.get("results").flatMap(_.asOpt[List[Content]])
-  lazy val relatedContent: Option[List[Content]] = response.get("relatedContent").flatMap(_.asOpt[List[Content]])
-  lazy val editorsPicks: Option[List[Content]] = response.get("editorsPicks").flatMap(_.asOpt[List[Content]])
-  lazy val mostViewed: Option[List[Content]] = response.get("mostViewed").flatMap(_.asOpt[List[Content]])
-  lazy val storyPackage: Option[List[Content]] = response.get("storyPackage").flatMap(_.asOpt[List[Content]])
-  lazy val leadContent: Option[List[Content]] = response.get("leadContent").flatMap(_.asOpt[List[Content]])
+  lazy val content: Option[Content] = response.get("content").flatMap(_.asOpt[Map[String, JsValue]].map(Content))
+  lazy val results: Option[List[Content]] = response.get("results").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
+  lazy val relatedContent: Option[List[Content]] = response.get("relatedContent").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
+  lazy val editorsPicks: Option[List[Content]] = response.get("editorsPicks").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
+  lazy val mostViewed: Option[List[Content]] = response.get("mostViewed").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
+  lazy val storyPackage: Option[List[Content]] = response.get("storyPackage").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
+  lazy val leadContent: Option[List[Content]] = response.get("leadContent").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
 }
 
 case class Content(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
