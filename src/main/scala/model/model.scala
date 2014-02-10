@@ -32,7 +32,7 @@ case class ContentApiResponse(response: Map[String, JsValue]) extends ContentImp
   lazy val orderBy: Option[String] = response.get("orderBy").flatMap(_.asOpt[String])
   lazy val tag: Option[Tag] = response.get("tag").flatMap(_.asOpt[Tag])
   lazy val edition: Option[Edition] = response.get("edition").flatMap(_.asOpt[Edition])
-  lazy val section: Option[Section] = response.get("section").flatMap(_.asOpt[Section])
+  lazy val section: Option[Section] = response.get("section").flatMap(_.asOpt[Map[String, JsValue]]).map(Section)
   lazy val content: Option[Content] = response.get("content").flatMap(_.asOpt[Map[String, JsValue]].map(Content))
   lazy val results: Option[List[Content]] = response.get("results").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
   lazy val relatedContent: Option[List[Content]] = response.get("relatedContent").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
@@ -51,7 +51,7 @@ case class Content(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
                     lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
                     lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
                     lazy val fields: Option[Map[String, String]] = jsonFields.get("fields").flatMap(_.asOpt[Map[String, String]])
-                    lazy val tags: Option[List[Tag]] = jsonFields.get("tags").flatMap(_.asOpt[List[Tag]])
+                    lazy val tags: Option[List[Tag]] = jsonFields.get("tags").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Tag))
                     lazy val factboxes: Option[List[Factbox]] = jsonFields.get("factboxes").flatMap(_.asOpt[List[Factbox]])
                     lazy val mediaAssets: Option[List[MediaAsset]] = jsonFields.get("mediaAssets").flatMap(_.asOpt[List[MediaAsset]])
                     lazy val elements: Option[List[Element]] = jsonFields.get("elements").flatMap(_.asOpt[List[Element]])
@@ -89,7 +89,7 @@ case class Section(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
                     lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
                     lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
                     lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
-                    lazy val editions: List[Edition] = jsonFields.apply("editions").as[List[Edition]]
+                    lazy val editions: List[Edition] = jsonFields.apply("editions").as[List[Map[String, JsValue]]].map(Edition)
 }
 
 case class Folder(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
