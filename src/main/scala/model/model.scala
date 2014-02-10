@@ -31,7 +31,7 @@ case class ContentApiResponse(response: Map[String, JsValue]) extends ContentImp
   lazy val pages: Option[Int] = response.get("pages").flatMap(_.asOpt[Int])
   lazy val orderBy: Option[String] = response.get("orderBy").flatMap(_.asOpt[String])
   lazy val tag: Option[Tag] = response.get("tag").flatMap(_.asOpt[Tag])
-  lazy val edition: Option[Edition] = response.get("edition").flatMap(_.asOpt[Edition])
+  lazy val edition: Option[Edition] = response.get("edition").flatMap(_.asOpt[Map[String, JsValue]]).map(Edition)
   lazy val section: Option[Section] = response.get("section").flatMap(_.asOpt[Map[String, JsValue]]).map(Section)
   lazy val content: Option[Content] = response.get("content").flatMap(_.asOpt[Map[String, JsValue]].map(Content))
   lazy val results: Option[List[Content]] = response.get("results").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Content))
