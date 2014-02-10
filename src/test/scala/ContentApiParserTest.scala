@@ -36,7 +36,20 @@ class ContentApiParserTest extends FlatSpec with ShouldMatchers {
 
   it should "parse the section" in {
     val section = contentApiResponse.section.get
+    section.id should be ("culture")
+    section.webTitle should be ("Culture")
+    section.webUrl should be ("http://www.theguardian.com/culture")
+    section.apiUrl should be ("http://content.guardianapis.com/culture")
     section.editions.length should be (4)
+  }
+
+  it should "parse an edition in a section" in {
+    val edition = contentApiResponse.section.get.editions(3)
+    edition.id should be ("au/culture")
+    edition.webTitle should be ("Culture")
+    edition.webUrl should be ("http://www.theguardian.com/au/culture")
+    edition.apiUrl should be ("http://content.guardianapis.com/au/culture")
+    edition.code should be ("au")
   }
 
 }
