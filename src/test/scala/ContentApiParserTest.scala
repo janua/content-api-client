@@ -3,7 +3,7 @@ package test
 import io.Source
 import java.io.File
 import org.scalatest.{FlatSpec, ShouldMatchers}
-import model.{Edition, ContentApiResponse, ContentApiParser}
+import model.{Content, Edition, ContentApiResponse, ContentApiParser}
 
 class ContentApiParserTest extends FlatSpec with ShouldMatchers {
 
@@ -50,6 +50,20 @@ class ContentApiParserTest extends FlatSpec with ShouldMatchers {
     edition.webUrl should be ("http://www.theguardian.com/au/culture")
     edition.apiUrl should be ("http://content.guardianapis.com/au/culture")
     edition.code should be ("au")
+  }
+
+  it should "parse the results" in {
+    val results: List[Content] = contentApiResponse.results.get
+    results.length should be (10)
+
+    val thirdResult: Content = results(2)
+    thirdResult.id should be ("culture/2014/feb/10/the-week-ahead-in-arts")
+    thirdResult.sectionId should be (Some("culture"))
+    thirdResult.sectionName should be (Some("Culture"))
+    thirdResult.webPublicationDate should be ("2014-02-10T07:01:42Z")
+    thirdResult.webTitle should be ("The week ahead in arts")
+    thirdResult.webUrl should be ("http://www.theguardian.com/culture/2014/feb/10/the-week-ahead-in-arts")
+    thirdResult.apiUrl should be ("http://content.guardianapis.com/culture/2014/feb/10/the-week-ahead-in-arts")
   }
 
 }
