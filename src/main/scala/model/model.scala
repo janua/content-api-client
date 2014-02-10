@@ -60,53 +60,53 @@ case class Content(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
 }
 
 
-case class Tag(
-                id: String,
-                `type`: String,
-                sectionId: Option[String] = None,
-                sectionName: Option[String] = None,
-                webTitle: String,
-                webUrl: String,
-                apiUrl: String,
-                references: Option[List[Reference]] = None,
-                bio: Option[String] = None,
-                bylineImageUrl: Option[String] = None,
-                bylineLargeImageUrl: Option[String] = None
-                ) {
+case class Tag(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
+                lazy val id: String = jsonFields.apply("id").as[String]
+                lazy val `type`: String = jsonFields.apply("type").as[String]
+                lazy val sectionId: Option[String] = jsonFields.get("sectionId").flatMap(_.asOpt[String])
+                lazy val sectionName: Option[String] = jsonFields.get("sectionName").flatMap(_.asOpt[String])
+                lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
+                lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
+                lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
+                lazy val references: Option[List[Reference]] = jsonFields.get("references").flatMap(_.asOpt[List[Reference]])
+                lazy val bio: Option[String] = jsonFields.get("bio").flatMap(_.asOpt[String])
+                lazy val bylineImageUrl: Option[String] = jsonFields.get("bylineImageUrl").flatMap(_.asOpt[String])
+                lazy val bylineLargeImageUrl: Option[String] = jsonFields.get("bylineLargeImageUrl").flatMap(_.asOpt[String])
+
   def tagType = `type`
 }
 
-case class Edition(
-                    id: String,
-                    webTitle: String,
-                    webUrl: String,
-                    apiUrl: String,
-                    code: String
-                    )
+case class Edition(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
+                    lazy val id: String = jsonFields.apply("id").as[String]
+                    lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
+                    lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
+                    lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
+                    lazy val code: String = jsonFields.apply("code").as[String]
+}
 
-case class Section(
-                    id: String,
-                    webTitle: String,
-                    webUrl: String,
-                    apiUrl: String,
-                    editions: List[Edition]
-                    )
+case class Section(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
+                    lazy val id: String = jsonFields.apply("id").as[String]
+                    lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
+                    lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
+                    lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
+                    lazy val editions: List[Edition] = jsonFields.apply("editions").as[List[Edition]]
+}
 
-case class Folder(
-                   id: String,
-                   webTitle: String,
-                   apiUrl: String,
-                   sectionId: Option[String] = None,
-                   sectionName: Option[String] = None
-                   )
+case class Folder(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
+                   lazy val id: String = jsonFields.apply("id").as[String]
+                   lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
+                   lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
+                   lazy val sectionId: Option[String] = jsonFields.get("sectionId").flatMap(_.asOpt[String])
+                   lazy val sectionName: Option[String] = jsonFields.get("sectionName").flatMap(_.asOpt[String])
+}
 
 
-case class Factbox(
-                    `type`: String,
-                    heading: Option[String],
-                    picture: Option[String],
-                    fields: Option[Map[String, String]]
-                    ) {
+case class Factbox(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
+                    lazy val `type`: String = jsonFields.apply("`type`").as[String]
+                    lazy val heading: Option[String] = jsonFields.get("heading").flatMap(_.asOpt[String])
+                    lazy val picture: Option[String] = jsonFields.get("picture").flatMap(_.asOpt[String])
+                    lazy val fields: Option[Map[String, String]] = jsonFields.get("fields").flatMap(_.asOpt[Map[String, String]])
+
   def factboxType = `type`
 }
 
