@@ -10,7 +10,7 @@ trait ContentApiClient {
 
   import ExecutionContext.Implicits.global
 
-  private val apiUrl: String = ""
+  private val apiUrl: String = "http://content.guardianapis.com"
 
   private def getUrl(id: String): String = s"$apiUrl/$id"
 
