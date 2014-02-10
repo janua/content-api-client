@@ -66,4 +66,9 @@ class ContentApiParserTest extends FlatSpec with ShouldMatchers {
     thirdResult.apiUrl should be ("http://content.guardianapis.com/culture/2014/feb/10/the-week-ahead-in-arts")
   }
 
+  it should "parse editors picks" in {
+    val editorsPicks: List[Content] = contentApiResponse.editorsPicks.get
+    editorsPicks.length should be (6)
+  }
+
 }
