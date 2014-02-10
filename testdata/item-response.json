@@ -1,0 +1,180 @@
+{
+    "response":{
+        "status":"ok",
+        "userTier":"free",
+        "total":26176,
+        "startIndex":1,
+        "pageSize":10,
+        "currentPage":1,
+        "pages":2618,
+        "orderBy":"newest",
+        "edition":{
+            "id":"uk/culture",
+            "webTitle":"Culture",
+            "webUrl":"http://www.theguardian.com/uk/culture",
+            "apiUrl":"http://content.guardianapis.com/uk/culture",
+            "code":"uk"
+        },
+        "section":{
+            "id":"culture",
+            "webTitle":"Culture",
+            "webUrl":"http://www.theguardian.com/culture",
+            "apiUrl":"http://content.guardianapis.com/culture",
+            "editions":[{
+                "id":"culture",
+                "webTitle":"Culture",
+                "webUrl":"http://www.theguardian.com/culture",
+                "apiUrl":"http://content.guardianapis.com/culture",
+                "code":"default"
+            },{
+                "id":"uk/culture",
+                "webTitle":"Culture",
+                "webUrl":"http://www.theguardian.com/uk/culture",
+                "apiUrl":"http://content.guardianapis.com/uk/culture",
+                "code":"uk"
+            },{
+                "id":"us/culture",
+                "webTitle":"Culture",
+                "webUrl":"http://www.theguardian.com/us/culture",
+                "apiUrl":"http://content.guardianapis.com/us/culture",
+                "code":"us"
+            },{
+                "id":"au/culture",
+                "webTitle":"Culture",
+                "webUrl":"http://www.theguardian.com/au/culture",
+                "apiUrl":"http://content.guardianapis.com/au/culture",
+                "code":"au"
+            }]
+        },
+        "results":[{
+            "id":"culture/2014/feb/10/lena-dunham-book-sneak-peak",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-10T18:43:41Z",
+            "webTitle":"Lena Dunham offers fans a sneak peak at new book Not That Kind Of Girl",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/10/lena-dunham-book-sneak-peak",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/10/lena-dunham-book-sneak-peak"
+        },{
+            "id":"culture/2014/feb/10/babylon-lebeouf-and-multi-coloured-bricks-todays-pop-culture-as-it-happens",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-10T17:34:05Z",
+            "webTitle":"Babylon, LaBeouf and multi-coloured bricks - today's pop culture as it happened!",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/10/babylon-lebeouf-and-multi-coloured-bricks-todays-pop-culture-as-it-happens",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/10/babylon-lebeouf-and-multi-coloured-bricks-todays-pop-culture-as-it-happens"
+        },{
+            "id":"culture/2014/feb/10/the-week-ahead-in-arts",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-10T07:01:42Z",
+            "webTitle":"The week ahead in arts",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/10/the-week-ahead-in-arts",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/10/the-week-ahead-in-arts"
+        },{
+            "id":"culture/2014/feb/09/claire-tomalin-radar-invisible-woman",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-09T00:05:00Z",
+            "webTitle":"On my radar: Claire Tomalin's cultural highlights",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/09/claire-tomalin-radar-invisible-woman",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/09/claire-tomalin-radar-invisible-woman"
+        },{
+            "id":"culture/2014/feb/08/lesley-sharp-interview-taste-of-honey",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-08T07:06:00Z",
+            "webTitle":"Lesley Sharp interview: 'When I hear people talking about their families it's not something I totally understand'",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/08/lesley-sharp-interview-taste-of-honey",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/08/lesley-sharp-interview-taste-of-honey"
+        },{
+            "id":"culture/cartoon/2014/feb/08/modern-toss-valentines-day",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-08T06:00:00Z",
+            "webTitle":"Modern Toss",
+            "webUrl":"http://www.theguardian.com/culture/cartoon/2014/feb/08/modern-toss-valentines-day",
+            "apiUrl":"http://content.guardianapis.com/culture/cartoon/2014/feb/08/modern-toss-valentines-day"
+        },{
+            "id":"culture/cartoon/2014/feb/08/josie-long-another-planet-sochi",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-08T06:00:00Z",
+            "webTitle":"Josie Long's Another Planet",
+            "webUrl":"http://www.theguardian.com/culture/cartoon/2014/feb/08/josie-long-another-planet-sochi",
+            "apiUrl":"http://content.guardianapis.com/culture/cartoon/2014/feb/08/josie-long-another-planet-sochi"
+        },{
+            "id":"culture/2014/feb/08/populist-the-guide",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-08T06:00:00Z",
+            "webTitle":"Populist: Items of interest this week",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/08/populist-the-guide",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/08/populist-the-guide"
+        },{
+            "id":"culture/2014/feb/08/this-weeks-new-events",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-08T06:00:00Z",
+            "webTitle":"This week's new events",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/08/this-weeks-new-events",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/08/this-weeks-new-events"
+        },{
+            "id":"culture/2014/feb/07/huge-programme-support-uk-culture-heritage",
+            "sectionId":"culture",
+            "sectionName":"Culture",
+            "webPublicationDate":"2014-02-07T21:00:08Z",
+            "webTitle":"A huge programme to support the UK's culture and heritage | @guardianletters",
+            "webUrl":"http://www.theguardian.com/culture/2014/feb/07/huge-programme-support-uk-culture-heritage",
+            "apiUrl":"http://content.guardianapis.com/culture/2014/feb/07/huge-programme-support-uk-culture-heritage"
+        }],
+        "editorsPicks":[{
+            "id":"education/2014/feb/10/stuart-hall-cultural-legacy-britain-godfather-multiculturalism",
+            "sectionId":"education",
+            "sectionName":"Education",
+            "webPublicationDate":"2014-02-10T19:07:04Z",
+            "webTitle":"Stuart Hall's cultural legacy: Britain under the microscope",
+            "webUrl":"http://www.theguardian.com/education/2014/feb/10/stuart-hall-cultural-legacy-britain-godfather-multiculturalism",
+            "apiUrl":"http://content.guardianapis.com/education/2014/feb/10/stuart-hall-cultural-legacy-britain-godfather-multiculturalism"
+        },{
+            "id":"books/2014/feb/10/folio-prize-shortlist-eight-book-shortlist-man-booker",
+            "sectionId":"books",
+            "sectionName":"Books",
+            "webPublicationDate":"2014-02-10T18:06:16Z",
+            "webTitle":"Folio Prize announces inaugural shortlist of eight books",
+            "webUrl":"http://www.theguardian.com/books/2014/feb/10/folio-prize-shortlist-eight-book-shortlist-man-booker",
+            "apiUrl":"http://content.guardianapis.com/books/2014/feb/10/folio-prize-shortlist-eight-book-shortlist-man-booker"
+        },{
+            "id":"books/2014/feb/10/jk-rowling-harry-potter-heresy-ron-hermione",
+            "sectionId":"books",
+            "sectionName":"Books",
+            "webPublicationDate":"2014-02-10T15:10:45Z",
+            "webTitle":"JK Rowling backtracks on 'Harry Potter heresy'",
+            "webUrl":"http://www.theguardian.com/books/2014/feb/10/jk-rowling-harry-potter-heresy-ron-hermione",
+            "apiUrl":"http://content.guardianapis.com/books/2014/feb/10/jk-rowling-harry-potter-heresy-ron-hermione"
+        },{
+            "id":"music/2014/feb/10/morrissey-blogpost-royal-boils-hunting-endangered-species",
+            "sectionId":"music",
+            "sectionName":"Music",
+            "webPublicationDate":"2014-02-10T15:34:20Z",
+            "webTitle":"Morrissey blogpost accuses 'royal boils' of hypocrisy over hunting trip",
+            "webUrl":"http://www.theguardian.com/music/2014/feb/10/morrissey-blogpost-royal-boils-hunting-endangered-species",
+            "apiUrl":"http://content.guardianapis.com/music/2014/feb/10/morrissey-blogpost-royal-boils-hunting-endangered-species"
+        },{
+            "id":"stage/gallery/2014/feb/10/royal-ballet-triple-bill-wayne-mcgregor-maths",
+            "sectionId":"stage",
+            "sectionName":"Stage",
+            "webPublicationDate":"2014-02-10T15:26:09Z",
+            "webTitle":"Bach to the future: The Royal Ballet's triple bill featuring Wayne McGregor - in pictures",
+            "webUrl":"http://www.theguardian.com/stage/gallery/2014/feb/10/royal-ballet-triple-bill-wayne-mcgregor-maths",
+            "apiUrl":"http://content.guardianapis.com/stage/gallery/2014/feb/10/royal-ballet-triple-bill-wayne-mcgregor-maths"
+        },{
+            "id":"artanddesign/jonathanjonesblog/2014/feb/10/lego-movie-michelangelo-architecture",
+            "sectionId":"artanddesign",
+            "sectionName":"Art and design",
+            "webPublicationDate":"2014-02-10T14:59:16Z",
+            "webTitle":"Michelangelo: The Lego Movie's architectural superhero",
+            "webUrl":"http://www.theguardian.com/artanddesign/jonathanjonesblog/2014/feb/10/lego-movie-michelangelo-architecture",
+            "apiUrl":"http://content.guardianapis.com/artanddesign/jonathanjonesblog/2014/feb/10/lego-movie-michelangelo-architecture"
+        }]
+    }
+}
