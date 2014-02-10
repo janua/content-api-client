@@ -20,6 +20,24 @@ trait ContentImplicitReads {
   implicit val contentApiResponseRead = Json.reads[ContentApiResponse]
 }
 
+trait ContentImplicitWrites {
+  implicit val assetRead = Json.writes[Asset]
+  implicit val elementRead = Json.writes[Element]
+  implicit val referenceRead = Json.writes[Reference]
+  implicit val folderRead = Json.writes[Folder]
+  implicit val bestBetRead = Json.writes[BestBet]
+  implicit val refinementRead = Json.writes[Refinement]
+  implicit val refinementGroupRead = Json.writes[RefinementGroup]
+  implicit val mediaEncodingRead = Json.writes[MediaEncoding]
+  implicit val mediaAssetRead = Json.writes[MediaAsset]
+  implicit val editionRead = Json.writes[Edition]
+  implicit val sectionRead = Json.writes[Section]
+  implicit val tagRead = Json.writes[Tag]
+  implicit val factBoxRead = Json.writes[Factbox]
+  implicit val contentRead = Json.writes[Content]
+  implicit val contentApiResponseRead = Json.writes[ContentApiResponse]
+}
+
 case class ContentApiResponse(response: Map[String, JsValue]) extends ContentImplicitReads {
   lazy val status: String = response.apply("status").as[String]
   lazy val message: Option[String] = response.get("message").flatMap(_.asOpt[String])
