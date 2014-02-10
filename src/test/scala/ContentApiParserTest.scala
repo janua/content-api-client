@@ -69,6 +69,15 @@ class ContentApiParserTest extends FlatSpec with ShouldMatchers {
   it should "parse editors picks" in {
     val editorsPicks: List[Content] = contentApiResponse.editorsPicks.get
     editorsPicks.length should be (6)
+
+    val secondResult: Content = editorsPicks(1)
+    secondResult.id should be ("books/2014/feb/10/folio-prize-shortlist-eight-book-shortlist-man-booker")
+    secondResult.sectionId should be (Some("books"))
+    secondResult.sectionName should be (Some("Books"))
+    secondResult.webPublicationDate should be ("2014-02-10T18:06:16Z")
+    secondResult.webTitle should be ("Folio Prize announces inaugural shortlist of eight books")
+    secondResult.webUrl should be ("http://www.theguardian.com/books/2014/feb/10/folio-prize-shortlist-eight-book-shortlist-man-booker")
+    secondResult.apiUrl should be ("http://content.guardianapis.com/books/2014/feb/10/folio-prize-shortlist-eight-book-shortlist-man-booker")
   }
 
 }
