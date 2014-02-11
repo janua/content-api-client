@@ -180,11 +180,21 @@ case class Element(
   def elementType = `type`
 }
 
-case class Asset(
-                  `type`: String,
-                  mimeType: Option[String],
-                  file: Option[String],
-                  typeData: Map[String, String]
-                  ) {
+case class Asset(jsonFields: Map[String, JsValue]) {
+                  lazy val `type`: String = jsonFields.apply("type").as[String]
+                  lazy val mimeType: Option[String] = jsonFields.get("mimeType").flatMap(_.asOpt[String])
+                  lazy val file: Option[String] = jsonFields.get("file").flatMap(_.asOpt[String])
+                  lazy val typeData: Map[String, String] = jsonFields.get("typeDate").flatMap(_.asOpt[Map[String, String]]).getOrElse(Map.empty)
   def assetType = `type`
+
+  lazy val secureFile: Option[String] = typeData.get("secureFile")
+  lazy val source: Option[String] = typeData.get("source")
+  lazy val photographer: Option[String] = typeData.get("photographer")
+  lazy val altText: Option[String] = typeData.get("altText")
+  lazy val height: Option[String] = typeData.get("height")
+  lazy val credit: Option[String] = typeData.get("credit")
+  lazy val caption: Option[String] = typeData.get("caption")
+  lazy val mediaId: Option[String] = typeData.get("mediaId")
+  lazy val picdarUrn: Option[String] = typeData.get("picdarUrn")
+  lazy val width: Option[String] = typeData.get("width")
 }
