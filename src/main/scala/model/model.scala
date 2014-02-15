@@ -128,14 +128,14 @@ case class Factbox(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
   def factboxType = `type`
 }
 
-case class MediaAsset(
-                       `type`: String,
-                       rel: String,
-                       index: Int,
-                       file: Option[String],
-                       fields: Option[Map[String, String]],
-                       encodings: List[MediaEncoding] = Nil
-                       ) {
+case class MediaAsset(jsonFields: Map[String, JsValue]) {
+                       lazy val `type`: String = jsonFields.apply("type").as[String]
+                       lazy val rel: String = jsonFields.apply("rel").as[String]
+                       lazy val index: Int = jsonFields.apply("index").as[Int]
+                       lazy val file: Option[String] = jsonFields.apply("file").asOpt[String]
+                       lazy val fields: Option[Map[String, String]] = jsonFields.apply("fields").asOpt[Map[String, String]]
+                       lazy val encodings: List[MediaEncoding] = jsonFields.apply("encodings").asOpt[List[MediaEncoding]].getOrElse(Nil)
+
   def mediaAssetType = `type`
 }
 
