@@ -120,7 +120,7 @@ case class Folder(jsonFields: Map[String, JsValue]) extends ContentImplicitReads
 
 
 case class Factbox(jsonFields: Map[String, JsValue]) extends ContentImplicitReads {
-                    lazy val `type`: String = jsonFields.apply("`type`").as[String]
+                    lazy val `type`: String = jsonFields.apply("type").as[String]
                     lazy val heading: Option[String] = jsonFields.get("heading").flatMap(_.asOpt[String])
                     lazy val picture: Option[String] = jsonFields.get("picture").flatMap(_.asOpt[String])
                     lazy val fields: Option[Map[String, String]] = jsonFields.get("fields").flatMap(_.asOpt[Map[String, String]])
