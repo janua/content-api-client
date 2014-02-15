@@ -139,25 +139,25 @@ case class MediaAsset(jsonFields: Map[String, JsValue]) {
   def mediaAssetType = `type`
 }
 
-case class MediaEncoding(
-                          format: String,
-                          file: String
-                          )
+case class MediaEncoding(jsonFields: Map[String, JsValue]) {
+                          lazy val format: String = jsonFields.apply("format").as[String]
+                          lazy val file: String = jsonFields.apply("file").as[String]
+}
 
-case class RefinementGroup(
-                            `type`: String,
-                            refinements: List[Refinement]
-                            ) {
+case class RefinementGroup(jsonFields: Map[String, JsValue]) {
+                            lazy val `type`: String = jsonFields.apply("`type`").as[String]
+                            lazy val refinements: List[Refinement] = jsonFields.apply("refinements").as[List[Refinement]]
+                            
   def refinementType = `type`
 }
 
-case class Refinement(
-                       count: Int,
-                       refinedUrl: String,
-                       displayName: String,
-                       id: String,
-                       apiUrl: String
-                       )
+case class Refinement(jsonFields: Map[String, JsValue]) {
+                       lazy val count: Int = jsonFields.apply("count").as[Int]
+                       lazy val refinedUrl: String = jsonFields.apply("refinedUrl").as[String]
+                       lazy val displayName: String = jsonFields.apply("displayName").as[String]
+                       lazy val id: String = jsonFields.apply("id").as[String]
+                       lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
+}
 
 case class BestBet(
                     webTitle: String,
