@@ -128,7 +128,7 @@ case class Factbox(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
   def factboxType = `type`
 }
 
-case class MediaAsset(jsonFields: Map[String, JsValue]) {
+case class MediaAsset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                        lazy val `type`: String = jsonFields.apply("type").as[String]
                        lazy val rel: String = jsonFields.apply("rel").as[String]
                        lazy val index: Int = jsonFields.apply("index").as[Int]
@@ -139,19 +139,19 @@ case class MediaAsset(jsonFields: Map[String, JsValue]) {
   def mediaAssetType = `type`
 }
 
-case class MediaEncoding(jsonFields: Map[String, JsValue]) {
+case class MediaEncoding(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                           lazy val format: String = jsonFields.apply("format").as[String]
                           lazy val file: String = jsonFields.apply("file").as[String]
 }
 
-case class RefinementGroup(jsonFields: Map[String, JsValue]) {
+case class RefinementGroup(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                             lazy val `type`: String = jsonFields.apply("type").as[String]
                             lazy val refinements: List[Refinement] = jsonFields.apply("refinements").as[List[Refinement]]
                             
   def refinementType = `type`
 }
 
-case class Refinement(jsonFields: Map[String, JsValue]) {
+case class Refinement(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                        lazy val count: Int = jsonFields.apply("count").as[Int]
                        lazy val refinedUrl: String = jsonFields.apply("refinedUrl").as[String]
                        lazy val displayName: String = jsonFields.apply("displayName").as[String]
@@ -159,18 +159,18 @@ case class Refinement(jsonFields: Map[String, JsValue]) {
                        lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
 }
 
-case class BestBet(jsonFields: Map[String, JsValue]) {
+case class BestBet(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                     lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
                     lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
                     lazy val trailText: Option[String] = jsonFields.apply("trailText").as[Option[String]]
 }
 
-case class Reference(jsonFields: Map[String, JsValue]) {
+case class Reference(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                       lazy val `type`: String = jsonFields.apply("type").as[String]
                       lazy val id: String = jsonFields.apply("id").as[String]
 }
 
-case class Element(jsonFields: Map[String, JsValue]) {
+case class Element(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                     lazy val id: String = jsonFields.apply("id").as[String]
                     lazy val relation: String = jsonFields.apply("relation").as[String]
                     lazy val `type`: String = jsonFields.apply("type").as[String]
@@ -180,7 +180,7 @@ case class Element(jsonFields: Map[String, JsValue]) {
   def elementType = `type`
 }
 
-case class Asset(jsonFields: Map[String, JsValue]) {
+case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
                   lazy val `type`: String = jsonFields.apply("type").as[String]
                   lazy val mimeType: Option[String] = jsonFields.get("mimeType").flatMap(_.asOpt[String])
                   lazy val file: Option[String] = jsonFields.get("file").flatMap(_.asOpt[String])
