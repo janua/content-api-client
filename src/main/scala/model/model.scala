@@ -145,7 +145,7 @@ case class MediaEncoding(jsonFields: Map[String, JsValue]) {
 }
 
 case class RefinementGroup(jsonFields: Map[String, JsValue]) {
-                            lazy val `type`: String = jsonFields.apply("`type`").as[String]
+                            lazy val `type`: String = jsonFields.apply("type").as[String]
                             lazy val refinements: List[Refinement] = jsonFields.apply("refinements").as[List[Refinement]]
                             
   def refinementType = `type`
