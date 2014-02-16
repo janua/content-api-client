@@ -159,24 +159,24 @@ case class Refinement(jsonFields: Map[String, JsValue]) {
                        lazy val apiUrl: String = jsonFields.apply("apiUrl").as[String]
 }
 
-case class BestBet(
-                    webTitle: String,
-                    webUrl: String,
-                    trailText: Option[String]
-                    )
+case class BestBet(jsonFields: Map[String, JsValue]) {
+                    lazy val webTitle: String = jsonFields.apply("webTitle").as[String]
+                    lazy val webUrl: String = jsonFields.apply("webUrl").as[String]
+                    lazy val trailText: Option[String] = jsonFields.apply("trailText").as[Option[String]]
+}
 
-case class Reference(
-                      `type`: String,
-                      id: String
-                      )
+case class Reference(jsonFields: Map[String, JsValue]) {
+                      lazy val `type`: String = jsonFields.apply("type").as[String]
+                      lazy val id: String = jsonFields.apply("id").as[String]
+}
 
-case class Element(
-                    id: String,
-                    relation: String,
-                    `type`: String,
-                    galleryIndex: Option[Int] = None,
-                    assets: List[Asset]
-                    ) {
+case class Element(jsonFields: Map[String, JsValue]) {
+                    lazy val id: String = jsonFields.apply("id").as[String]
+                    lazy val relation: String = jsonFields.apply("relation").as[String]
+                    lazy val `type`: String = jsonFields.apply("type").as[String]
+                    lazy val galleryIndex: Option[Int] = jsonFields.get("galleryIndex").flatMap(_.asOpt[Int])
+                    lazy val assets: List[Asset] = jsonFields.apply("assets").as[List[Asset]]
+
   def elementType = `type`
 }
 
