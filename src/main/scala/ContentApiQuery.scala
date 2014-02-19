@@ -54,8 +54,9 @@ case class ContentApiQuery(id: String, queryParams: Map[String, String] = Map.em
   //Reference
   def withReference(reference: String) = withQueryString("reference", reference)
   def withReferenceType(referenceType: String) = withQueryString("reference-type", referenceType)
-
   def withShowReferences(references: String) = withQueryString("show-references", references)
+
+  def withSearchQuery(query: String) = withQueryString("q", query)
 
   def get: Future[Option[ContentApiResponse]] =
     queryParams.get("q")
