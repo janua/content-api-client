@@ -1,0 +1,93 @@
+{
+    "response":{
+        "status":"ok",
+        "userTier":"free",
+        "total":407805,
+        "startIndex":1,
+        "pageSize":10,
+        "currentPage":1,
+        "pages":40781,
+        "orderBy":"newest",
+        "results":[{
+            "id":"politics/2014/feb/19/esther-addley-diary-badger-gassing",
+            "sectionId":"politics",
+            "sectionName":"Politics",
+            "webPublicationDate":"2014-02-19T23:00:01Z",
+            "webTitle":"Esther Addley's diary: The MoD, Porton Down, and the bizarre truth of our badger-gassing past",
+            "webUrl":"http://www.theguardian.com/politics/2014/feb/19/esther-addley-diary-badger-gassing",
+            "apiUrl":"http://content.guardianapis.com/politics/2014/feb/19/esther-addley-diary-badger-gassing"
+        },{
+            "id":"music/2014/feb/19/brit-awards-foreign-stars-british-wins",
+            "sectionId":"music",
+            "sectionName":"Music",
+            "webPublicationDate":"2014-02-19T22:53:19Z",
+            "webTitle":"Brit awards: foreign stars lift predictable British wins",
+            "webUrl":"http://www.theguardian.com/music/2014/feb/19/brit-awards-foreign-stars-british-wins",
+            "apiUrl":"http://content.guardianapis.com/music/2014/feb/19/brit-awards-foreign-stars-british-wins"
+        },{
+            "id":"music/2014/feb/19/brits-bowie-scotland-independence",
+            "sectionId":"music",
+            "sectionName":"Music",
+            "webPublicationDate":"2014-02-19T22:32:59Z",
+            "webTitle":"Brits 2014: David Bowie becomes oldest recipient of award",
+            "webUrl":"http://www.theguardian.com/music/2014/feb/19/brits-bowie-scotland-independence",
+            "apiUrl":"http://content.guardianapis.com/music/2014/feb/19/brits-bowie-scotland-independence"
+        },{
+            "id":"music/2014/feb/19/brit-awards-2014-red-carpet-and-build-up-live",
+            "sectionId":"music",
+            "sectionName":"Music",
+            "webPublicationDate":"2014-02-19T22:26:17Z",
+            "webTitle":"Brit awards 2014 - as it happened",
+            "webUrl":"http://www.theguardian.com/music/2014/feb/19/brit-awards-2014-red-carpet-and-build-up-live",
+            "apiUrl":"http://content.guardianapis.com/music/2014/feb/19/brit-awards-2014-red-carpet-and-build-up-live"
+        },{
+            "id":"football/2014/feb/19/bayern-munich-arsenal-champions-league-emirates-first-leg",
+            "sectionId":"football",
+            "sectionName":"Football",
+            "webPublicationDate":"2014-02-19T22:16:00Z",
+            "webTitle":"Bayern Munich below their best but still toy with depleted Arsenal",
+            "webUrl":"http://www.theguardian.com/football/2014/feb/19/bayern-munich-arsenal-champions-league-emirates-first-leg",
+            "apiUrl":"http://content.guardianapis.com/football/2014/feb/19/bayern-munich-arsenal-champions-league-emirates-first-leg"
+        },{
+            "id":"music/2014/feb/19/brits-2014-full-list-winners",
+            "sectionId":"music",
+            "sectionName":"Music",
+            "webPublicationDate":"2014-02-19T22:04:52Z",
+            "webTitle":"Brit awards 2014 – full list of winners ",
+            "webUrl":"http://www.theguardian.com/music/2014/feb/19/brits-2014-full-list-winners",
+            "apiUrl":"http://content.guardianapis.com/music/2014/feb/19/brits-2014-full-list-winners"
+        },{
+            "id":"uk-news/2014/feb/19/folic-acid-less-third-pre-pregnancy-guidelines-spina-bifida",
+            "sectionId":"uk-news",
+            "sectionName":"UK news",
+            "webPublicationDate":"2014-02-19T22:00:01Z",
+            "webTitle":"Folic acid taken by less than third of women planning pregnancy",
+            "webUrl":"http://www.theguardian.com/uk-news/2014/feb/19/folic-acid-less-third-pre-pregnancy-guidelines-spina-bifida",
+            "apiUrl":"http://content.guardianapis.com/uk-news/2014/feb/19/folic-acid-less-third-pre-pregnancy-guidelines-spina-bifida"
+        },{
+            "id":"music/2014/feb/19/lorde-wins-international-solo-female-artist-2014-brits",
+            "sectionId":"music",
+            "sectionName":"Music",
+            "webPublicationDate":"2014-02-19T21:41:00Z",
+            "webTitle":"Lorde wins international female solo artist award at 2014 Brits",
+            "webUrl":"http://www.theguardian.com/music/2014/feb/19/lorde-wins-international-solo-female-artist-2014-brits",
+            "apiUrl":"http://content.guardianapis.com/music/2014/feb/19/lorde-wins-international-solo-female-artist-2014-brits"
+        },{
+            "id":"uk-news/2014/feb/19/boy-stabbed-death-killer-essex",
+            "sectionId":"uk-news",
+            "sectionName":"UK news",
+            "webPublicationDate":"2014-02-19T21:32:25Z",
+            "webTitle":"Man charged over death of 14-year-old in Essex",
+            "webUrl":"http://www.theguardian.com/uk-news/2014/feb/19/boy-stabbed-death-killer-essex",
+            "apiUrl":"http://content.guardianapis.com/uk-news/2014/feb/19/boy-stabbed-death-killer-essex"
+        },{
+            "id":"sport/2014/feb/19/david-murdoch-team-gb-curling-skip-sochi",
+            "sectionId":"sport",
+            "sectionName":"Sport",
+            "webPublicationDate":"2014-02-19T21:10:46Z",
+            "webTitle":"Sochi 2014: David Murdoch's success is crowning feat in career of endeavour",
+            "webUrl":"http://www.theguardian.com/sport/2014/feb/19/david-murdoch-team-gb-curling-skip-sochi",
+            "apiUrl":"http://content.guardianapis.com/sport/2014/feb/19/david-murdoch-team-gb-curling-skip-sochi"
+        }]
+    }
+}
