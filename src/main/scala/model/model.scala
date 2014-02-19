@@ -72,7 +72,7 @@ case class Content(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
                     lazy val tags: Option[List[Tag]] = jsonFields.get("tags").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Tag))
                     lazy val factboxes: Option[List[Factbox]] = jsonFields.get("factboxes").flatMap(_.asOpt[List[Factbox]])
                     lazy val mediaAssets: Option[List[MediaAsset]] = jsonFields.get("mediaAssets").flatMap(_.asOpt[List[MediaAsset]])
-                    lazy val elements: Option[List[Element]] = jsonFields.get("elements").flatMap(_.asOpt[List[Element]])
+                    lazy val elements: Option[List[Element]] = jsonFields.get("elements").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Element))
                     lazy val snippets: Option[Map[String, String]] = jsonFields.get("snippets").flatMap(_.asOpt[Map[String, String]])
                     lazy val references: Option[List[Reference]] = jsonFields.get("references").flatMap(_.asOpt[List[Reference]])
 }
