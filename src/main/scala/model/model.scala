@@ -175,7 +175,7 @@ case class Element(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
                     lazy val relation: String = jsonFields.apply("relation").as[String]
                     lazy val `type`: String = jsonFields.apply("type").as[String]
                     lazy val galleryIndex: Option[Int] = jsonFields.get("galleryIndex").flatMap(_.asOpt[Int])
-                    lazy val assets: List[Asset] = jsonFields.apply("assets").as[List[Asset]]
+                    lazy val assets: List[Asset] = jsonFields.get("assets").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Asset)).getOrElse(Nil)
 
   def elementType = `type`
 }
