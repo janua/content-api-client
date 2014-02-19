@@ -97,4 +97,15 @@ class ContentApiClientTest extends FlatSpec with ShouldMatchers with Futures wit
     }
   }
 
+  it should "get a search response" in {
+    val searchResult = ContentApiClient.search("london")
+    whenReady(searchResult) { response =>
+      response.isDefined should be (true)
+      response.get.status should be ("ok")
+      response.get.results.isDefined should be (true)
+      response.get.section.isDefined should be (false)
+      response.get.results.get.length should be > 5
+    }
+  }
+
 }
