@@ -22,12 +22,17 @@ trait ContentApiClient {
   def getResponse(query: ContentApiQuery): Future[Response] =
     Http(query.params.foldLeft(url(getUrl(query.id))){case (req, (k, v)) => req.addQueryParameter(k, v)})
 
+  def getSearchResponse(query: ContentApiQuery): Future[Response] =
+    Http(query.params.foldLeft(url(getUrl(s"search"))){case (req, (k, v)) => req.addQueryParameter(k, v)})
+
   def getContent(id: String): Future[Option[ContentApiResponse]] =
     getResponse(id).map(parseResponse)
 
   def getContent(query: ContentApiQuery):  Future[Option[ContentApiResponse]] =
     getResponse(query).map(parseResponse)
 
+  def search(id: String): Future[Option[ContentApiResponse]] =
+    getSearchResponse(ContentApiQuery(id).withQueryString("q", id)).map(parseResponse)
 }
 
 object ContentApiClient extends ContentApiClient
