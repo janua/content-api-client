@@ -31,4 +31,21 @@ class ElementsTest extends FlatSpec with ShouldMatchers {
     secondElement.assets.length should be (2)
   }
 
+  it should "parse Assets" in {
+    val asset = contentApiResponse.results.get.apply(0).elements.get(0).assets(0)
+
+    asset.assetType should be ("image")
+    asset.mimeType should be (Some("image/jpeg"))
+    asset.file should be (Some("http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/2/19/1392831807426/The-Courtauld-Gallerys-ha-001.jpg"))
+    asset.typeData.keys.toSeq.length should be (6)
+
+    //typeData
+    asset.source.get should be ("Courtauld Gallery, London")
+    asset.altText.get should be ("The Courtauld Gallery's handbag")
+    asset.height.get should be ("54")
+    asset.credit.get should be ("Courtauld Gallery, London")
+    asset.caption.get should be ("The Courtauld Gallery's handbag made of brass inlaid with silver and gold, from Mosul, northern Iraq, dated 1300-1330. Photograph: Courtauld Gallery, London")
+    asset.width.get should be ("54")
+  }
+
 }
