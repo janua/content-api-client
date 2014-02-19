@@ -184,7 +184,7 @@ case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads 
                   lazy val `type`: String = jsonFields.apply("type").as[String]
                   lazy val mimeType: Option[String] = jsonFields.get("mimeType").flatMap(_.asOpt[String])
                   lazy val file: Option[String] = jsonFields.get("file").flatMap(_.asOpt[String])
-                  lazy val typeData: Map[String, String] = jsonFields.get("typeDate").flatMap(_.asOpt[Map[String, String]]).getOrElse(Map.empty)
+                  lazy val typeData: Map[String, String] = jsonFields.get("typeData").flatMap(_.asOpt[Map[String, String]]).getOrElse(Map.empty)
   def assetType = `type`
 
   lazy val secureFile: Option[String] = typeData.get("secureFile")
