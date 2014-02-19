@@ -33,6 +33,9 @@ trait ContentApiClient {
 
   def search(id: String): Future[Option[ContentApiResponse]] =
     getSearchResponse(ContentApiQuery(id).withQueryString("q", id)).map(parseResponse)
+
+  def search(query: ContentApiQuery): Future[Option[ContentApiResponse]] =
+    getSearchResponse(query).map(parseResponse)
 }
 
 object ContentApiClient extends ContentApiClient
