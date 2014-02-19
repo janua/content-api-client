@@ -1,6 +1,8 @@
 package contentapiclient
 
 import org.joda.time.DateTime
+import model.ContentApiResponse
+import scala.concurrent.Future
 
 case class ContentApiQuery(id: String, queryParams: Map[String, String] = Map.empty) {
 
@@ -54,4 +56,9 @@ case class ContentApiQuery(id: String, queryParams: Map[String, String] = Map.em
   def withReferenceType(referenceType: String) = withQueryString("reference-type", referenceType)
 
   def withShowReferences(references: String) = withQueryString("show-references", references)
+
+  def get: Future[Option[ContentApiResponse]] =
+    queryParams.get("q")
+      .map{_ => ContentApiClient.search(this)}
+      .getOrElse(ContentApiClient.getContent(this))
 }
