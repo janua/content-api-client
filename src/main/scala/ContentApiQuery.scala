@@ -4,7 +4,7 @@ import org.joda.time.DateTime
 import model.ContentApiResponse
 import scala.concurrent.Future
 
-case class ContentApiQuery(id: String, queryParams: Map[String, String] = Map.empty) {
+case class ContentApiQuery(id: Option[String], queryParams: Map[String, String] = Map.empty) {
 
   def params: Seq[(String, String)] = queryParams.toSeq
 
