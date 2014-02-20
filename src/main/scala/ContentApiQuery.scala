@@ -62,4 +62,11 @@ case class ContentApiQuery(id: Option[String], queryParams: Map[String, String] 
     queryParams.get("q")
       .map{_ => ContentApiClient.search(this)}
       .getOrElse(ContentApiClient.getContent(this))
+
+  def getId: String = id.getOrElse(if (queryParams.contains("q")) "search" else "")
+}
+
+object ContentApiQuery {
+  def apply(id: String): ContentApiQuery = ContentApiQuery(Some(id))
+  def apply(): ContentApiQuery = ContentApiQuery(None)
 }
