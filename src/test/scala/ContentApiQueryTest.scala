@@ -13,7 +13,7 @@ class ContentApiQueryTest extends FlatSpec with ShouldMatchers with ScalaFutures
   }
 
   it should "use a search query" in {
-    whenReady(ContentApiQuery("ignored").withQueryString("q", "london").get) { response =>
+    whenReady(ContentApiQuery("ignored").withSearchQuery("london").get) { response =>
       response.get.status should be ("ok")
       response.get.results.get.length should be > 5
     }
