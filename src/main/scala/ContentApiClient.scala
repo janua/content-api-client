@@ -26,7 +26,7 @@ trait ContentApiClient {
   def getContent(id: String): Future[Option[ContentApiResponse]] =
     getResponse(id).map(parseResponse)
 
-  def getContent(query: ContentApiQuery):  Future[Option[ContentApiResponse]] =
+  def getContent(query: ContentApiQuery): Future[Option[ContentApiResponse]] =
     getResponse(query).map(parseResponse)
 
   def search(id: String): Future[Option[ContentApiResponse]] =
