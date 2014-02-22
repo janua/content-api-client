@@ -59,9 +59,7 @@ case class ContentApiQuery(id: Option[String], queryParams: Map[String, String] 
   def withSearchQuery(query: String) = withQueryString("q", query)
 
   def get: Future[Option[ContentApiResponse]] =
-    queryParams.get("q")
-      .map{_ => ContentApiClient.search(this)}
-      .getOrElse(ContentApiClient.getContent(this))
+    ContentApiClient.getContent(this)
 
   def getId: String = id.getOrElse(if (queryParams.contains("q")) "search" else "")
 }
