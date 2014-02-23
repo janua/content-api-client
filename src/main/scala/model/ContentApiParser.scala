@@ -3,9 +3,7 @@ package model
 import play.api.libs.json.Json
 import com.ning.http.client.Response
 
-trait ContentApiParser {
-
-  implicit val contentApiResponseRead = Json.reads[ContentApiResponse]
+trait ContentApiParser extends ContentImplicitReads {
 
   def parseResponse(r: String): Option[ContentApiResponse] =
     Json.parse(r).asOpt[ContentApiResponse]
