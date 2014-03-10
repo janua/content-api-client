@@ -197,4 +197,8 @@ case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads 
   lazy val mediaId: Option[String] = typeData.get("mediaId")
   lazy val picdarUrn: Option[String] = typeData.get("picdarUrn")
   lazy val width: Option[String] = typeData.get("width")
+
+  lazy val durationMinutes: Option[Int] = typeData.get("durationMinutes").map(_.toInt)
+  lazy val durationSeconds: Option[Int] = typeData.get("durationSeconds").map(_.toInt)
+  lazy val duration: Option[Int] = for {dm <- durationMinutes;ds <- durationSeconds} yield dm * 60 + ds
 }
