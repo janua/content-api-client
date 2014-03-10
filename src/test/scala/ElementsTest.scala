@@ -1,7 +1,7 @@
 package test
 
 import org.scalatest.{FlatSpec, ShouldMatchers}
-import model.{Element, ContentApiResponse, ContentApiParser}
+import model.{Asset, Element, ContentApiResponse, ContentApiParser}
 import java.io.File
 import scala.io.Source
 
@@ -13,6 +13,11 @@ class ElementsTest extends FlatSpec with ShouldMatchers {
 
   val itemResponse: String = getItemResponse
   val contentApiResponse: ContentApiResponse = ContentApiParser.parseResponse(itemResponse).get
+
+  def getElement(itemIndex: Int, elementIndex: Int): Element = contentApiResponse.results.get.apply(itemIndex).elements.get.apply(elementIndex)
+
+  //To test against
+  lazy val elementWithImageAndVideo: Element = getElement(10, 6)
 
   "ContentApiParser" should "parse the elements" in {
     val elements: List[Element] = contentApiResponse.results.get.apply(0).elements.get
