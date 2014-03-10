@@ -20,6 +20,7 @@ class AssetsTest extends FlatSpec with ShouldMatchers {
   def getAsset(itemIndex: Int, elementIndex: Int, assetIndex: Int): Asset = contentApiResponse.results.get.apply(itemIndex).elements.get.apply(elementIndex).assets.apply(assetIndex)
   val imageAsset: Asset = getAsset(0, 0, 0)
   val audioAsset: Asset = getAsset(9, 1, 0)
+  val videoAsset: Asset = getAsset(10, 6, 0)
 
   "ContentApiParser" should "parse image assets" in {
     imageAsset.assetType should be ("image")
