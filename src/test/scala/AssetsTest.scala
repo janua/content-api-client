@@ -1,9 +1,12 @@
 package test
 
 import org.scalatest.{FlatSpec, ShouldMatchers}
-import model.{Asset, ContentApiResponse, ContentApiParser}
+import model._
 import java.io.File
 import scala.io.Source
+import model.Asset
+import model.ContentApiResponse
+import scala.Some
 
 class AssetsTest extends FlatSpec with ShouldMatchers {
 
@@ -37,6 +40,19 @@ class AssetsTest extends FlatSpec with ShouldMatchers {
     audioAsset.durationSeconds should be (Some(36))
     audioAsset.explicit should be (Some("false"))
     audioAsset.source should be (Some("Guardian"))
+  }
+
+  it should "use match correctly against types" in {
+    val matchResult = imageAsset match {
+      case Audio(audio) => "audio"
+      case Video(video) => "video"
+      case Image(image) => "image"
+      case _ => "NoMatch"
+    }
+    matchResult should be ("image")
+
+    Audio.unapply(audioAsset) shouldBe an [Option[Audio]]
+    Audio.unapply(imageAsset) should be (None)
   }
 
 }
