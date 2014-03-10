@@ -201,4 +201,5 @@ case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads 
   lazy val durationMinutes: Option[Int] = typeData.get("durationMinutes").map(_.toInt)
   lazy val durationSeconds: Option[Int] = typeData.get("durationSeconds").map(_.toInt)
   lazy val duration: Option[Int] = for {dm <- durationMinutes;ds <- durationSeconds} yield dm * 60 + ds
+  lazy val explicit: Option[String] = typeData.get("explicit")
 }
