@@ -8,17 +8,17 @@ trait ContentFunctions { self: Content =>
 
   lazy val imagesWithIndex: Seq[(Element, Int)] = images.zipWithIndex
 
-  def getLargestImage: Option[Element] = images.sortBy(_.largestAsset.flatMap(_.width.map(_.toInt)).getOrElse(0)).headOption
+  def getLargestImage: Option[Element] = images.sortBy(_.largestAsset.flatMap(_.width).getOrElse(0)).headOption
 }
 
 trait AssetFunctions { self: Asset =>
 
   private lazy val aspectRatio: Fraction = {
-    val heightAsRatio: Int = height.map(_.toInt).getOrElse(0) match {
+    val heightAsRatio: Int = height.getOrElse(0) match {
       case 0 => 1
       case denom:Int => denom
     }
-    new Fraction(width.map(_.toInt).getOrElse(0), heightAsRatio)
+    new Fraction(width.getOrElse(0), heightAsRatio)
   }
 
 }

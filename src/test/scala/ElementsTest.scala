@@ -42,10 +42,10 @@ class ElementsTest extends FlatSpec with ShouldMatchers {
     //typeData
     asset.source.get should be ("Courtauld Gallery, London")
     asset.altText.get should be ("The Courtauld Gallery's handbag")
-    asset.height.get should be ("54")
+    asset.height.get should be (54)
     asset.credit.get should be ("Courtauld Gallery, London")
     asset.caption.get should be ("The Courtauld Gallery's handbag made of brass inlaid with silver and gold, from Mosul, northern Iraq, dated 1300-1330. Photograph: Courtauld Gallery, London")
-    asset.width.get should be ("54")
+    asset.width.get should be (54)
   }
 
 }

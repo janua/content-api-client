@@ -178,6 +178,7 @@ case class Element(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
                     lazy val assets: List[Asset] = jsonFields.get("assets").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Asset)).getOrElse(Nil)
 
   def elementType = `type`
+  lazy val largestAsset: Option[Asset] = assets.sortBy(_.width.getOrElse(0)).headOption
 }
 
 case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {
@@ -191,13 +192,15 @@ case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads 
   lazy val source: Option[String] = typeData.get("source")
   lazy val photographer: Option[String] = typeData.get("photographer")
   lazy val altText: Option[String] = typeData.get("altText")
-  lazy val height: Option[String] = typeData.get("height")
   lazy val credit: Option[String] = typeData.get("credit")
   lazy val caption: Option[String] = typeData.get("caption")
   lazy val mediaId: Option[String] = typeData.get("mediaId")
   lazy val picdarUrn: Option[String] = typeData.get("picdarUrn")
-  lazy val width: Option[String] = typeData.get("width")
 
+  lazy val height: Option[Int] = typeData.get("height").map(_.toInt)
+  lazy val width: Option[Int] = typeData.get("width").map(_.toInt)
+
+  //durationMinutes and durationSeconds audio only?
   lazy val durationMinutes: Option[Int] = typeData.get("durationMinutes").map(_.toInt)
   lazy val durationSeconds: Option[Int] = typeData.get("durationSeconds").map(_.toInt)
   lazy val duration: Option[Int] = for {dm <- durationMinutes;ds <- durationSeconds} yield dm * 60 + ds
