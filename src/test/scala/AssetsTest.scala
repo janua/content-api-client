@@ -53,6 +53,12 @@ class AssetsTest extends FlatSpec with ShouldMatchers {
 
     Audio.unapply(audioAsset) shouldBe an [Option[Audio]]
     Audio.unapply(imageAsset) should be (None)
+
+    Video.unapply(audioAsset) should be (None)
+    Video.unapply(imageAsset) should be (None)
+
+    Image.unapply(audioAsset) should be (None)
+    Image.unapply(imageAsset) shouldBe an [Option[Image]]
   }
 
 }
