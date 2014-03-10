@@ -178,7 +178,7 @@ case class Element(jsonFields: Map[String, JsValue]) extends ContentImplicitRead
                     lazy val assets: List[Asset] = jsonFields.get("assets").flatMap(_.asOpt[List[Map[String, JsValue]]]).map(_.map(Asset)).getOrElse(Nil)
 
   def elementType = `type`
-  lazy val largestAsset: Option[Asset] = assets.sortBy(_.width.getOrElse(0)).headOption
+  lazy val largestImageAsset: Option[Image] = assets.flatMap(Image.unapply(_)).sortBy(_.asset.width.getOrElse(0)).headOption
 }
 
 case class Asset(jsonFields: Map[String, JsValue]) extends ContentImplicitReads  {

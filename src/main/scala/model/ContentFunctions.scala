@@ -8,7 +8,7 @@ trait ContentFunctions { self: Content =>
 
   lazy val imagesWithIndex: Seq[(Element, Int)] = images.zipWithIndex
 
-  def getLargestImage: Option[Element] = images.sortBy(_.largestAsset.flatMap(_.width).getOrElse(0)).headOption
+  def getLargestImage: Option[Element] = images.sortBy(_.largestImageAsset.flatMap(_.asset.width).getOrElse(0)).headOption
 }
 
 trait AssetFunctions { self: Asset =>
